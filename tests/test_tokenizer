@@ -1,0 +1,20 @@
+import pytest
+import torch
+import os
+from src.tokenizer import CharTokenizer
+
+@pytest.fixture
+def sample_vocab():
+    vocab = {'a': 0, 'b': 1, 'c': 2}
+    path = 'test_vocab.pt'
+    torch.save(vocab, path)
+    yield path
+    os.remove(path)
+
+def test_tokenizer_encode_decode(sample_vocab):
+    tokenizer = CharTokenizer(sample_vocab)
+    text = 'abc'
+    encoded = tokenizer.encode(text)
+    assert encoded == [0, 1, 2]
+    decoded = tokenizer.decode(encoded)
+    assert decoded == 'abc'

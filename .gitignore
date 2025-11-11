@@ -1,0 +1,12 @@
+# Directories
+data/
+models/
+__pycache__/
+venv/
+
+# Files
+*.pyc
+*.pyo
+*.pyd
+*.pth
+*.log

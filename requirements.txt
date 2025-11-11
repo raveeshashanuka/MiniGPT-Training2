@@ -1,0 +1,11 @@
+torch
+torchvision
+torchaudio
+transformers
+langchain
+requests
+pyyaml
+pytest
+#deepspeed
+setuptools
+pytest
